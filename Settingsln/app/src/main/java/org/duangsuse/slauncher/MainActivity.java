@@ -1,8 +1,8 @@
 package org.duangsuse.slauncher;
 
 import android.app.*;
-import android.os.*;
 import android.content.*;
+import android.os.*;
 import android.widget.*;
 
 public class MainActivity extends Activity 
@@ -11,6 +11,14 @@ public class MainActivity extends Activity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.ICE_CREAM_SANDWICH){
+			super.setTheme(android.R.style.Theme_DeviceDefault);
+		}
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP){
+			super.setTheme(android.R.style.Theme_Holo);
+		}else{
+			super.setTheme(android.R.style.Theme_Material);
+		}
 		
 		final EditText input = new EditText(this);
 		input.setHint(getString(R.string.hint));
@@ -42,7 +50,7 @@ public class MainActivity extends Activity
 			startActivity(i);
 			finish();
 		} catch (Exception ActivityNotFoundException) {
-			Toast.makeText(this , "Activity Not Found" ,Toast.LENGTH_SHORT)
+			Toast.makeText(this , "Package Not Found" ,Toast.LENGTH_SHORT)
 				.show();
 				finish();
 		}
