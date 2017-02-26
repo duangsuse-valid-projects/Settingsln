@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "org.duangsuse.slauncher"
-        minSdkVersion 1
+        minSdkVersion 5
         targetSdkVersion 25
         versionCode 1
         versionName ":frog: :pill:"

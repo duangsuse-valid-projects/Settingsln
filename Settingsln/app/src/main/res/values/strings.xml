@@ -2,5 +2,6 @@
 <resources>
 
     <string name="app_name">Settingsln</string>
+	<string name="hint">Input Intent</string>
 
 </resources>
